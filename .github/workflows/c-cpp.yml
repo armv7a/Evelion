@@ -22,7 +22,7 @@ jobs:
     
     - name: Build Solution
       working-directory: ./Evelion 1.2  # 在解决方案目录中执行
-      run: msbuild "Evelion.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:OutputPath=../build_output
+      run: msbuild "Evelion.sln" /p:Configuration=Release /p:Platform="x86" /p:OutputPath=../build_output
     
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
