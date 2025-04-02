@@ -1,0 +1,31 @@
+name: Build Evelion 1.2 Solution
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    
+    - name: Restore NuGet packages
+      working-directory: ./Evelion 1.2  # 进入解决方案目录
+      run: nuget restore "Evelion.sln"  # 替换为实际的.sln文件名
+    
+    - name: Build Solution
+      working-directory: ./Evelion 1.2  # 在解决方案目录中执行
+      run: msbuild "Evelion.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:OutputPath=../build_output
+    
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: ./build_output
