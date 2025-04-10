@@ -16,7 +16,7 @@
 
 // initialization
 // ==============
-const auto memory = Memory{ "hl.exe" };
+const auto memory = Memory{ "MAE-Protect.exe" };
 
 const auto hw = memory.GetModuleAddress("hw.dll");
 const auto client = memory.GetModuleAddress("client.dll");
@@ -512,7 +512,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	bool WindowFocus = false;
 	setlocale(LC_ALL, "Russian"); // maybe can fix problem with russian nicknames displaying in esp
 
-	if (!IsProcessAlive("hl.exe")) {
+	if (!IsProcessAlive("MAE-Protect.exe")) {
 		MessageBox(nullptr, "Please run game before running Evelion!", "Evelion", MB_OK);
 		exit(0);
 	}

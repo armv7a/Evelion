@@ -62,7 +62,7 @@ bool IsProcessAlive(const char* processName) {
 bool ProcessAlive() {
     while (1) {
 
-        if (!IsProcessAlive("hl.exe")) {
+        if (!IsProcessAlive("MAE-Protect.exe")) {
             MessageBox(nullptr, "Game is closed. Please restart Evelion.", "Evelion", MB_OK);
             exit(0);
         }
